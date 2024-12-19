@@ -8,7 +8,7 @@ public class Runner {
         System.out.println(name);
         int menu = msl.enterNumb();
         msl.printMenu();
-s
+s   цуцу
         while(true){
             if(menu == 1){
 
