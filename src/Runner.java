@@ -5,7 +5,6 @@ public class Runner {
         System.out.println("How should I contact you ?");
         msl.setUsername();
         String name = msl.getUsername();
-        System.out.println();
         System.out.println(name);
         int menu = msl.enterNumb();
         msl.printMenu();
