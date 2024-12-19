@@ -22,8 +22,6 @@ public class MSL {
     public String getUsername() {
         return this.username;
     }
-    s
-
 
 
     public static void printMenu() {
