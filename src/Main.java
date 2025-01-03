@@ -1,9 +1,9 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class Runner {
+public class Main {
     public static void main(String[] args) {
         MSL msl = new MSL("User", 1);
+        Artist artist = new Artist("Artist");
         Scanner add = new Scanner(System.in);
         System.out.println("Welcome to our music platform\n" + "_____________________________");
         System.out.println("How should I contact you ?");
@@ -13,6 +13,9 @@ public class Runner {
         msl.setUsername();
         String name = msl.getUsername();
         msl.printMenu();
+        Playlist playlistName = new Playlist("Rock");
+        playlistName.setPlaylist("");
+        playlistName.getPlaylist();
 
         int menu = msl.enterNumb();
         while (true) {
@@ -21,9 +24,9 @@ public class Runner {
             } else if (menu == 2) {
                 music = addmusic(add, music);
             } else if (menu == 3) {
-                System.out.println("in development");
+                System.out.println("Create new playlist");
             } else if (menu == 4) {
-                System.out.println("in development");
+                System.out.println("Top artists");
             } else if (menu == 5) {
                 System.out.println("in development");
             } else if (menu == 0) {
@@ -39,7 +42,7 @@ public class Runner {
 
 
     private static String[] addmusic(Scanner add, String[] music) {
-        System.out.println(" Write name a music");
+        System.out.println("Write name a music");
         String inputmusic = add.next();
         String[] resArray = new String[music.length + 1];
         for(int i = 0; i < music.length; i++){
@@ -53,7 +56,8 @@ public class Runner {
         for(int i = 0; i < music.length; i++){
             System.out.print(music[i] + " | ");
         }
-        System.out.println();}
+        System.out.println();
+    }
 }
 
 
