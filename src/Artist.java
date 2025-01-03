@@ -23,4 +23,5 @@ public class Artist {
             System.out.println((i + 1) + ". " + topArtists[i].getTop());
         }
     }
+    wre
 }
