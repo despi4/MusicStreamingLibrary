@@ -27,6 +27,6 @@ public class MSL {
 
     public static void printMenu() {
         System.out.println("Please select one of the following options:");
-        System.out.println("1. All music\n" + "2. Add Music\n" + "3. Delete Music\n" + "0. Exit\n");
+        System.out.println("1. All music\n" + "2. Add Music\n" + "3. Delete\n" + "0. Exit\n");
     }
 }

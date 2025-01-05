@@ -1,20 +1,16 @@
-import java.util.Scanner;
+public class Playlist extends Song {
+    private String playlistName;
 
-public class Playlist {
-    private String playlist;
-
-    public Playlist(String playlist) {
-        this.playlist = playlist;
+    public Playlist(String[] nameMusic, String playlistName) {
+        super(nameMusic);
+        this.playlistName = playlistName;
     }
 
-    public void setPlaylist(String playlist) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter playlist: ");
-        this.playlist = sc.nextLine();
+    public String getPlaylistName() {
+        return playlistName;
     }
 
-    public String getPlaylist() {
-        return playlist;
+    public void setPlaylistName(String playlistName) {
+        this.playlistName = playlistName;
     }
 }
-

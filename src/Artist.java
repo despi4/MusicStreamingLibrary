@@ -1,27 +1,67 @@
-public class Artist {
-    private String Top;
+import java.util.ArrayList;
+    public class Artist {
+        private String name; // Имя артиста
+        private ArrayList<Song> songs; // Список песен
 
-    public Artist(String top) {
-        this.Top = top;
-    }
+        public Artist(String name) {
+            this.name = name;
+            this.songs = new ArrayList<>();
+        }
 
-    public String getTop() {
-        return Top;
-    }
+        public String getName() {
+            return name;
+        }
 
-    public static void main(String[] args) {
-        Artist[] topArtists = {
-                new Artist("Drake"),
-                new Artist("Taylot Swift"),
-                new Artist("Ed Sheeran"),
-                new Artist("Adele"),
-                new Artist("Billie Eilish")
-        };
+        public void setName(String name) {
+            this.name = name;
+        }
 
-        System.out.println("Top 5 Popular Artist:");
-        for(int i = 0; i < topArtists.length; i++) {
-            System.out.println((i + 1) + ". " + topArtists[i].getTop());
+        public void addSong(Song song) {
+            songs.add(song);
+        }
+
+        public void displaySongs() {
+            System.out.println("Songs by " + name + ":");
+            for (Song song : songs) {
+                System.out.println("- " + String.join(", ", song.getNameMusic()));
+            }
+        }
+
+        public void describe() {
+            System.out.println(name + " is a general artist.");
         }
     }
-    wre
-}
+
+    class SoloArtist extends Artist {
+        public SoloArtist(String name) {
+            super(name);
+        }
+
+        @Override
+        public void describe() {
+            System.out.println(getName() + " is a solo artist.");
+        }
+    }
+
+    class Band extends Artist {
+        private int memberCount;
+
+        public Band(String name, int memberCount) {
+            super(name);
+            this.memberCount = memberCount;
+        }
+
+        public int getMemberCount() {
+            return memberCount;
+        }
+
+        public void setMemberCount(int memberCount) {
+            this.memberCount = memberCount;
+        }
+
+        @Override
+        public void describe() {
+            System.out.println(getName() + " is a band with " + memberCount + " members.");
+        }
+    }
+

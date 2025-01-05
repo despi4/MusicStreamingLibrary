@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         MSL msl = new MSL("User", 1);
-        Artist artist = new Artist("Artist");
         Scanner add = new Scanner(System.in);
         System.out.println("Welcome to our music platform\n" + "_____________________________");
         System.out.println("How should I contact you ?");
@@ -13,9 +12,6 @@ public class Main {
         msl.setUsername();
         String name = msl.getUsername();
         msl.printMenu();
-        Playlist playlistName = new Playlist("Rock");
-        playlistName.setPlaylist("");
-        playlistName.getPlaylist();
 
         int menu = msl.enterNumb();
         while (true) {
@@ -24,7 +20,12 @@ public class Main {
             } else if (menu == 2) {
                 music = addmusic(add, music);
             } else if (menu == 3) {
-                System.out.println("Create new playlist");
+                System.out.println("Create Playlist");
+                Playlist playlist = new Playlist(music, "v");
+                System.out.println("Please enter the name of the playlist:");
+                Scanner input = new Scanner(System.in);
+                playlist.setPlaylistName(input.next());
+                playlist.addSong(music[0]);
             } else if (menu == 4) {
                 System.out.println("Top artists");
             } else if (menu == 5) {

@@ -1,46 +1,30 @@
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import java.io.File;
+import java.util.Arrays;
 
-public class Song extends Application {
-    private MediaPlayer mediaPlayer;
+public class Song {
+    private String[] nameMusic;
 
-    @Override
-    public void start(Stage primaryStage) {
-        String audioFilePath = "C:\\Users\\Almadi\\Downloads\\audio.mp3";
-        File audioFile = new File(audioFilePath);
-
-        if (!audioFile.exists()) {
-            System.out.println("File not found");
-            return;
-        }
-
-        Media media = new Media(audioFile.toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-
-        Button playButton = new Button("Play");
-        playButton.setOnAction(e -> mediaPlayer.play());
-
-        Button pauseButton = new Button("Pause");
-        pauseButton.setOnAction(e -> mediaPlayer.pause());
-
-        Button stopButton = new Button("Stop");
-        stopButton.setOnAction(e -> mediaPlayer.stop());
-
-        VBox layout = new VBox(10, playButton, pauseButton, stopButton);
-        Scene scene = new Scene(layout, 300, 200);
-
-        primaryStage.setTitle("Audio Player");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public Song(String[] nameMusic) {
+        this.nameMusic = nameMusic;
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public String[] getNameMusic() {
+        return nameMusic;
+    }
+
+    public void setNameMusic(String[] nameMusic) {
+        this.nameMusic = nameMusic;
+    }
+
+    public void addSong(String newSong) {
+        nameMusic = Arrays.copyOf(nameMusic, nameMusic.length + 1); // Увеличиваем массив на 1
+        nameMusic[nameMusic.length - 1] = newSong; // Добавляем новую песню
+    }
+
+
+    public void displaySongs() {
+        System.out.println("Songs in the list:");
+        for (String song : nameMusic) {
+            System.out.println("- " + song);
+        }
     }
 }
